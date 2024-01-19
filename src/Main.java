@@ -4,33 +4,27 @@ public class Main {
         System.out.println(" Hello World");
         double[] numbers = { 5.2, 3.1, -7.4, -8.9, -2.5, 2.6, 7.8, 4.6, 8.9, -9.1, -8.8, -9.3, -8.2, -5.5, -7.1 };
 
-        int firstNegativeIndex = -1;
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] < 0) {
-                firstNegativeIndex = i;
-                break;
+        boolean negativeEncountered = false;
+
+        double sum = 0;
+        int count = 0;
+
+        for (double number : numbers) {
+            if (negativeEncountered && number > 0) {
+                sum += number;
+                count++;
+            }
+
+            if (number < 0) {
+                negativeEncountered = true;
             }
         }
 
-        if (firstNegativeIndex != -1 && firstNegativeIndex < numbers.length - 1) {
-            double sum = 0;
-            int count = 0;
-
-            for (int i = firstNegativeIndex + 1; i < numbers.length; i++) {
-                if (numbers[i] > 0) {
-                    sum += numbers[i];
-                    count++;
-                }
-            }
-
-            if (count > 0) {
-                //double average = sum/count;
-                System.out.println("Среднее арифметическое: " +  + sum + "/" + count);
-            } else {
-                System.out.println("После первого отрицательного числа нет положительных чисел.");
-            }
+        if (count > 0) {
+            //double average = sum / count;
+            System.out.println("Среднее арифметическое: " + + sum + "/" + count);
         } else {
-            System.out.println("Отрицательные числа не найдены.");
+            System.out.println("После первого отрицательного числа нет положительных чисел.");
         }
         System.out.println();
 

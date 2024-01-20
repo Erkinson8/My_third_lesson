@@ -21,8 +21,8 @@ public class Main {
         }
 
         if (count > 0) {
-            //double average = sum / count;
-            System.out.println("Среднее арифметическое: " + + sum + "/" + count);
+            double average = sum / count;
+            System.out.println("Среднее арифметическое: " + + sum + "/" + count  + '='  +  average );
         } else {
             System.out.println("После первого отрицательного числа нет положительных чисел.");
         }
